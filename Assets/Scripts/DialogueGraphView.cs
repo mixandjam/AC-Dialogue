@@ -94,16 +94,12 @@ public class DialogueGraphView : GraphView
 
     private void AddChoicePort(DialogueNode dialogueNode)
     {
-        var generatedInPort = GeneratePort(dialogueNode, Direction.Input);
-        var generatedOutPort = GeneratePort(dialogueNode, Direction.Output);
+        var generatedPort = GeneratePort(dialogueNode, Direction.Output);
         var outputPortCount = dialogueNode.outputContainer.Query("connector").ToList().Count;
-        var inputPortCount = dialogueNode.outputContainer.Query("connector").ToList().Count;
 
-        generatedOutPort.portName = $"Choice {outputPortCount}";
-        generatedInPort.portName = $"Choice {inputPortCount}";
+        generatedPort.portName = $"Choice {outputPortCount}";
 
-        dialogueNode.outputContainer.Add(generatedOutPort);
-        dialogueNode.inputContainer.Add(generatedInPort);
+        dialogueNode.outputContainer.Add(generatedPort);
         dialogueNode.RefreshPorts();
         dialogueNode.RefreshExpandedState();
 
