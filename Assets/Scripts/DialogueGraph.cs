@@ -5,6 +5,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEditor;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
+using System;
 
 public class DialogueGraph : EditorWindow
 {
@@ -32,6 +33,19 @@ public class DialogueGraph : EditorWindow
 
         _graphView.StretchToParentSize();
         rootVisualElement.Add(_graphView);
+
+        _graphView.RegisterCallback<MouseUpEvent>(e => UpdateSelection());
+    }
+
+    private void UpdateSelection()
+    {
+        var selections = _graphView.selection;
+        selections.ForEach((selected) => 
+        { 
+            var node = selected as DialogueNode;
+            Debug.Log(node.GUID);
+        }
+        );
     }
 
     private void GenerateToolbar()
