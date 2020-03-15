@@ -20,15 +20,15 @@ MonoBehaviour:
     PortName: Choice 1
     TargetNodeGuid: 34c92ce3-fa65-48bf-9854-b04f14cf2500
   - BaseNodeGuid: c81e0e92-7a32-40a6-99b1-abd5145888c9
-    PortName: Choice 2
+    PortName: Stuff
     TargetNodeGuid: 57c8486b-eed8-45c4-8ea3-8bd3276f7519
   DialogueNodeData:
-  - Guid: c81e0e92-7a32-40a6-99b1-abd5145888c9
-    DialogueText: Dialogue Node
-    Position: {x: 328, y: 139}
-  - Guid: 57c8486b-eed8-45c4-8ea3-8bd3276f7519
-    DialogueText: Dialogue Node
-    Position: {x: 583, y: 203}
   - Guid: 34c92ce3-fa65-48bf-9854-b04f14cf2500
     DialogueText: Dialogue Node
     Position: {x: 578, y: 99}
+  - Guid: 57c8486b-eed8-45c4-8ea3-8bd3276f7519
+    DialogueText: Dialogue Node
+    Position: {x: 578, y: 195}
+  - Guid: c81e0e92-7a32-40a6-99b1-abd5145888c9
+    DialogueText: Dialogue Node
+    Position: {x: 328, y: 139}

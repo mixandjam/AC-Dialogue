@@ -5,10 +5,14 @@
     "com.unity.collab-proxy": "1.2.16",
     "com.unity.ext.nunit": "1.0.0",
     "com.unity.ide.rider": "1.1.4",
+<<<<<<< HEAD
     "com.unity.ide.vscode": "1.1.4",
     "com.unity.package-manager-ui": "2.2.0",
     "com.unity.postprocessing": "2.1.7",
     "com.unity.recorder": "2.0.3-preview.1",
+=======
+    "com.unity.ide.vscode": "1.2.0",
+>>>>>>> 575ed78df66fadea68075aadc94184df7b76534f
     "com.unity.render-pipelines.universal": "7.1.8",
     "com.unity.test-framework": "1.1.11",
     "com.unity.textmeshpro": "2.0.1",
