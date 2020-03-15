@@ -12,7 +12,7 @@ public class NpcAim : MonoBehaviour
     void Update()
     {
         float weight = (aimTarget == null) ? 0 : 1;
-        Vector3 pos = (aimTarget == null) ? transform.position + transform.forward : aimTarget.position;
+        Vector3 pos = (aimTarget == null) ? transform.position + transform.forward + Vector3.up : aimTarget.position + Vector3.up;
 
         multiAim.weight = Mathf.Lerp(multiAim.weight, weight, .1f);
         aimController.position = Vector3.Lerp(aimController.position, pos, .1f);

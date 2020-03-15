@@ -14,6 +14,8 @@ public class DialogueTrigger : MonoBehaviour
 
     public CanvasGroup uiGroup;
 
+    public Transform currentNpc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+
             gameCam.SetActive(!gameCam.active);
             dialogueCam.SetActive(!dialogueCam.active);
 
@@ -33,6 +36,14 @@ public class DialogueTrigger : MonoBehaviour
 
             uiGroup.DOFade(dofWeight, .2f).SetDelay(dialogueCam.active ? .65f : 0);
             if (dofWeight == 1) uiGroup.transform.DOScale(.5f, .2f).From().SetEase(Ease.OutBack).SetDelay(.65f);
+
+            if (dofWeight == 1)
+            {
+                currentNpc.DOLookAt(transform.position, .5f);
+                currentNpc.GetComponent<Animator>().SetTrigger("turn");
+            }
+
+
         }
     }
 

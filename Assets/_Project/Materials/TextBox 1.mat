@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TextBox
+  m_Name: TextBox 1
   m_Shader: {fileID: -6465566751694194690, guid: 6ae4f21ea0ed60c4398deeb2402e5958,
     type: 3}
   m_ShaderKeywords: 
@@ -29,6 +29,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_51AD4622: 0.8
-    - Vector1_65F80636: -20
+    - Vector1_51AD4622: 2
+    - Vector1_65F80636: -5.48
     m_Colors: []
