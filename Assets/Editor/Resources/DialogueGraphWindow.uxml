@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Template name="DialogueEditor" src="DialogueEditor.uxml" />
+    <ui:VisualElement name="container" style="flex-direction: row;&#10;flex-grow: 1;&#10;">
+        <Style src="DialogueGraphWindow.uss" />
+        <ui:VisualElement name="graph-container" style="flex-grow: 1;&#10;" />
+        <ui:Instance template="DialogueEditor" name="dialogue-editor" style="width: 200px;&#10;visibility: visible;&#10;display: flex;&#10;" />
+    </ui:VisualElement>
+</ui:UXML>

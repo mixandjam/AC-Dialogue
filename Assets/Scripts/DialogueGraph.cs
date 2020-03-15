@@ -10,7 +10,7 @@ using System;
 public class DialogueGraph : EditorWindow
 {
     private DialogueGraphView _graphView;
-    private string _fileName = "New Chat";
+    private string _fileName = "New Chart";
 
     [MenuItem("Custom Tools/Dialogue Graph")]
     public static void OpenDialogueGraphWindow()
@@ -21,8 +21,10 @@ public class DialogueGraph : EditorWindow
 
     private void OnEnable()
     {
-        ConstructGraphView();
         GenerateToolbar();
+        var quickToolVisualTree = Resources.Load<VisualTreeAsset>("DialogueGraphWindow");
+        quickToolVisualTree.CloneTree(rootVisualElement);
+        ConstructGraphView();
     }
 
     private void ConstructGraphView()
@@ -33,7 +35,7 @@ public class DialogueGraph : EditorWindow
         };
 
         _graphView.StretchToParentSize();
-        rootVisualElement.Add(_graphView);
+        rootVisualElement.Q<VisualElement>("graph-container").Add(_graphView);
 
         _graphView.RegisterCallback<MouseUpEvent>(e => UpdateSelection());
     }
@@ -41,12 +43,7 @@ public class DialogueGraph : EditorWindow
     private void UpdateSelection()
     {
         var selections = _graphView.selection;
-        selections.ForEach((selected) => 
-        { 
-            var node = selected as DialogueNode;
-            //Debug.Log(node.GUID);
-        }
-        );
+        rootVisualElement.Q<VisualElement>("dialogue-editor").style.display = selections.Count > 0 ? DisplayStyle.Flex : DisplayStyle.None;
     }
 
     private void GenerateToolbar()
@@ -59,10 +56,10 @@ public class DialogueGraph : EditorWindow
         fileNameTextField.RegisterValueChangedCallback(evt => _fileName = evt.newValue);
         toolbar.Add(fileNameTextField);
 
-        toolbar.Add(new Button(() => RequestData(true)) { text = "Save Data" });
-        toolbar.Add(new Button(() => RequestData(false)) { text = "Load Data" });
+        toolbar.Add(new ToolbarButton(() => RequestData(true)) { text = "Save Data" });
+        toolbar.Add(new ToolbarButton(() => RequestData(false)) { text = "Load Data" });
 
-        var nodeCreateButton = new Button(clickEvent: () => { _graphView.CreateNode("Dialogue Node"); });
+        var nodeCreateButton = new ToolbarButton(clickEvent: () => { _graphView.CreateNode("Dialogue Node"); });
         nodeCreateButton.text = "Create Node";
         toolbar.Add(nodeCreateButton);
 
@@ -87,10 +84,5 @@ public class DialogueGraph : EditorWindow
     private void SaveData()
     {
         throw new NotImplementedException();
-    }
-
-    private void OnDisable()
-    {
-        rootVisualElement.Remove(_graphView);
     }
 }
