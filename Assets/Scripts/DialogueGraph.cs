@@ -10,7 +10,6 @@ using System;
 public class DialogueGraph : EditorWindow
 {
     private DialogueGraphView _graphView;
-    private string _fileName = "New Chart";
 
     [MenuItem("Custom Tools/Dialogue Graph")]
     public static void OpenDialogueGraphWindow()
@@ -50,12 +49,6 @@ public class DialogueGraph : EditorWindow
     {
         var toolbar = new Toolbar();
 
-        var fileNameTextField = new TextField("File Name:");
-        fileNameTextField.SetValueWithoutNotify(_fileName);
-        fileNameTextField.MarkDirtyRepaint();
-        fileNameTextField.RegisterValueChangedCallback(evt => _fileName = evt.newValue);
-        toolbar.Add(fileNameTextField);
-
         toolbar.Add(new ToolbarButton(() => RequestData(true)) { text = "Save Data" });
         toolbar.Add(new ToolbarButton(() => RequestData(false)) { text = "Load Data" });
 
@@ -68,17 +61,17 @@ public class DialogueGraph : EditorWindow
 
     private void RequestData(bool save)
     {
-        if (string.IsNullOrEmpty(_fileName))
-        {
-            EditorUtility.DisplayDialog("Invalid file name!", "Please enter a valid file name.", "OK");
-            return;
-        }
 
         var saveUtility = GraphSaveUtility.GetInstance(_graphView);
         if (save)
-            saveUtility.SaveGraph(_fileName);
+            saveUtility.SaveGraph();
         else
-            saveUtility.LoadGraph(_fileName);
+        {
+            string path = EditorUtility.OpenFilePanel("Load Graph", "", "asset");
+            if (string.IsNullOrEmpty(path))
+                return;
+            saveUtility.LoadGraph(path);
+        }
     }
 
     private void SaveData()

@@ -22,7 +22,7 @@ public class GraphSaveUtility
         };
     }
 
-    public void SaveGraph(string fileName)
+    public void SaveGraph()
     {
         if (!Edges.Any()) return;
 
@@ -43,7 +43,7 @@ public class GraphSaveUtility
             });
         }
 
-        foreach(var dialogueNode in Nodes.Where(node => !node.EntryPoint))
+        foreach (var dialogueNode in Nodes.Where(node => !node.EntryPoint))
         {
             dialogueContainer.DialogueNodeData.Add(new DialogueNodeData
             {
@@ -52,17 +52,20 @@ public class GraphSaveUtility
                 Position = dialogueNode.GetPosition().position
             });
         }
-
-        if (!AssetDatabase.IsValidFolder("Assets/Resources"))
-            AssetDatabase.CreateFolder("Assets", "Resources");
-
-        AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Resources/{fileName}.asset");
+        string filePath = EditorUtility.SaveFilePanel("Save texture as PNG", "", "New Graph.asset", "asset");
+        if (string.IsNullOrEmpty(filePath))
+            return;
+        AssetDatabase.CreateAsset(dialogueContainer, filePath);
         AssetDatabase.SaveAssets();
+
     }
 
-    public void LoadGraph(string fileName)
+    public void LoadGraph(string filePath)
     {
-        _containerCache = Resources.Load<DialogueContainer>(fileName);
+        if (filePath.StartsWith(Application.dataPath))
+            filePath = "Assets" + filePath.Substring(Application.dataPath.Length);
+
+        _containerCache = AssetDatabase.LoadAssetAtPath(filePath, typeof(DialogueContainer)) as DialogueContainer;
 
         if (_containerCache == null)
         {
@@ -126,7 +129,7 @@ public class GraphSaveUtility
     {
         Nodes.Find(x => x.EntryPoint).GUID = _containerCache.NodeLinks[0].BaseNodeGuid;
 
-        foreach(var node in Nodes)
+        foreach (var node in Nodes)
         {
             if (node.EntryPoint) continue;
 
