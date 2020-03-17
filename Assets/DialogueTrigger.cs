@@ -31,13 +31,13 @@ public class DialogueTrigger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
 
-            gameCam.SetActive(!gameCam.active);
-            dialogueCam.SetActive(!dialogueCam.active);
+            gameCam.SetActive(!gameCam.activeSelf);
+            dialogueCam.SetActive(!dialogueCam.activeSelf);
 
-            float dofWeight = dialogueCam.active ? 1 : 0;
+            float dofWeight = dialogueCam.activeSelf ? 1 : 0;
             DOVirtual.Float(dialogueDof.weight, dofWeight, .8f, DialogueDOF);
 
-            uiGroup.DOFade(dofWeight, .2f).SetDelay(dialogueCam.active ? .65f : 0);
+            uiGroup.DOFade(dofWeight, .2f).SetDelay(dialogueCam.activeSelf ? .65f : 0);
             if (dofWeight == 1) uiGroup.transform.DOScale(.5f, .2f).From().SetEase(Ease.OutBack).SetDelay(.65f);
 
             if (dofWeight == 1)
