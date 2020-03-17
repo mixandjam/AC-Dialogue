@@ -15,7 +15,6 @@ public class TestingTextParser : MonoBehaviour
     }
     void Start()
     {
-        animatedText.ReadText(masterText);
         animatedText.onEmotionChange.AddListener((newEmotion) => print(newEmotion));
     }
 

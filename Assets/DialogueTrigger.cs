@@ -17,7 +17,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public Transform currentNpc;
 
-    public TextMeshProUGUI dialogueTextUI;
+    public TMP_Animated tmp_animated;
 
     // Start is called before the first frame update
     void Start()
@@ -38,19 +38,25 @@ public class DialogueTrigger : MonoBehaviour
             DOVirtual.Float(dialogueDof.weight, dofWeight, .8f, DialogueDOF);
 
             uiGroup.DOFade(dofWeight, .2f).SetDelay(dialogueCam.activeSelf ? .65f : 0);
-            if (dofWeight == 1) uiGroup.transform.DOScale(.5f, .2f).From().SetEase(Ease.OutBack).SetDelay(.65f);
+            currentNpc.DOLookAt(transform.position, .5f);
+            currentNpc.GetComponent<Animator>().SetTrigger("turn");
 
-            if (dofWeight == 1)
-            {
-                currentNpc.DOLookAt(transform.position, .5f);
-                currentNpc.GetComponent<Animator>().SetTrigger("turn");
-
-                dialogueTextUI.maxVisibleCharacters = 0;
-                DOVirtual.Float(0, dialogueTextUI.text.Length, 3, DialogueMaxVisibleChars).SetDelay(.8f);
-            }
+            StartCoroutine(Routine(.65f, dofWeight == 1));
 
 
         }
+    }
+
+    public IEnumerator Routine(float delay, bool active)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (active)
+        {
+            uiGroup.transform.DOScale(.5f, .2f).From().SetEase(Ease.OutBack);
+            tmp_animated.ReadText("<speed=30> Hmmmmm Wait wait are those <speed=5>. . . <pause=.1> <speed=200> <size=150%> NEW SHOES?!");
+        }
+
     }
 
     public void DialogueDOF(float x)
@@ -58,8 +64,4 @@ public class DialogueTrigger : MonoBehaviour
         dialogueDof.weight = x;
     }
 
-    public void DialogueMaxVisibleChars(float x)
-    {
-        dialogueTextUI.maxVisibleCharacters = (int)x;
-    }
 }
