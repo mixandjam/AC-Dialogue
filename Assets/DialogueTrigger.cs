@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class DialogueTrigger : MonoBehaviour
     public CanvasGroup uiGroup;
 
     public Transform currentNpc;
+
+    public TextMeshProUGUI dialogueTextUI;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,9 @@ public class DialogueTrigger : MonoBehaviour
             {
                 currentNpc.DOLookAt(transform.position, .5f);
                 currentNpc.GetComponent<Animator>().SetTrigger("turn");
+
+                dialogueTextUI.maxVisibleCharacters = 0;
+                DOVirtual.Float(0, dialogueTextUI.text.Length, 3, DialogueMaxVisibleChars).SetDelay(.8f);
             }
 
 
@@ -50,5 +56,10 @@ public class DialogueTrigger : MonoBehaviour
     public void DialogueDOF(float x)
     {
         dialogueDof.weight = x;
+    }
+
+    public void DialogueMaxVisibleChars(float x)
+    {
+        dialogueTextUI.maxVisibleCharacters = (int)x;
     }
 }

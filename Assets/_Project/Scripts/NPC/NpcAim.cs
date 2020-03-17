@@ -11,11 +11,11 @@ public class NpcAim : MonoBehaviour
 
     void Update()
     {
-        float weight = (aimTarget == null) ? 0 : 1;
+        float weight = (aimTarget == null) ? 0 : 1f;
         Vector3 pos = (aimTarget == null) ? transform.position + transform.forward + Vector3.up : aimTarget.position + Vector3.up;
 
         multiAim.weight = Mathf.Lerp(multiAim.weight, weight, .1f);
-        aimController.position = Vector3.Lerp(aimController.position, pos, .1f);
+        aimController.position = Vector3.Lerp(aimController.position, pos, .3f);
     }
 
     private void OnTriggerEnter(Collider other)
