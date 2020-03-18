@@ -7,11 +7,16 @@ namespace TMPro
 {
     public enum Emotion { happy, sad, suprised, angry };
     [System.Serializable] public class EmotionEvent : UnityEvent<Emotion> { }
+
+    [System.Serializable] public class TextRevealEvent : UnityEvent<char> { }
+
     public class TMP_Animated : TextMeshProUGUI
     {
 
         [SerializeField] private float speed = 10;
         public EmotionEvent onEmotionChange;
+        public TextRevealEvent onTextReveal;
+
         public void ReadText(string newText)
         {
             // split the whole text into parts based off the <> tags 
@@ -53,6 +58,7 @@ namespace TMPro
                     {
                         while (visibleCounter < subTexts[subCounter].Length)
                         {
+                            onTextReveal.Invoke(subTexts[subCounter][visibleCounter]);
                             visibleCounter++;
                             maxVisibleCharacters++;
                             yield return new WaitForSeconds(1f / speed);

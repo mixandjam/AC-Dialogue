@@ -13,9 +13,5 @@ public class TestingTextParser : MonoBehaviour
     {
         animatedText = GetComponent<TMP_Animated>();
     }
-    void Start()
-    {
-        animatedText.onEmotionChange.AddListener((newEmotion) => print(newEmotion));
-    }
 
 }
