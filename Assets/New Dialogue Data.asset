@@ -18,4 +18,5 @@ MonoBehaviour:
     <b>HAVE DINNER<speed=20>!</b>
   - <emotion=angry><speed=50>Dude if you say no Imma kill you<speed=5>... <speed=60><size=150%><b>FOR
     REAL THO</b>!!!
-  - <action=rain><emotion=sad><speed=30>Or I guess you could say no if you want<speed=5>...
+  - <action=rain><emotion=sad><speed=30>Or I guess you could say no if you want<speed=5>...<speed=30>
+    I guess I really don't have a choice<speed=5>... <speed=15><action=shake><action=sparkle><emotion=suprised>UNLESS?
