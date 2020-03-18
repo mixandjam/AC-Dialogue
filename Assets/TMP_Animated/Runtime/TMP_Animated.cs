@@ -8,17 +8,24 @@ namespace TMPro
     public enum Emotion { happy, sad, suprised, angry };
     [System.Serializable] public class EmotionEvent : UnityEvent<Emotion> { }
 
+    [System.Serializable] public class ActionEvent : UnityEvent<string> { }
+
     [System.Serializable] public class TextRevealEvent : UnityEvent<char> { }
+
+    [System.Serializable] public class DialogueEvent : UnityEvent { }
 
     public class TMP_Animated : TextMeshProUGUI
     {
 
         [SerializeField] private float speed = 10;
         public EmotionEvent onEmotionChange;
+        public ActionEvent onAction;
         public TextRevealEvent onTextReveal;
+        public DialogueEvent onDialogueFinish;
 
         public void ReadText(string newText)
         {
+            text = string.Empty;
             // split the whole text into parts based off the <> tags 
             // even numbers in the array are text, odd numbers are tags
             string[] subTexts = newText.Split('<', '>');
@@ -35,7 +42,7 @@ namespace TMPro
             // check to see if a tag is our own
             bool isCustomTag(string tag)
             {
-                return tag.StartsWith("speed=") || tag.StartsWith("pause=") || tag.StartsWith("emotion=");
+                return tag.StartsWith("speed=") || tag.StartsWith("pause=") || tag.StartsWith("emotion=") || tag.StartsWith("action");
             }
 
             // send that string to textmeshpro and hide all of it, then start reading
@@ -85,9 +92,14 @@ namespace TMPro
                         {
                             onEmotionChange.Invoke((Emotion)System.Enum.Parse(typeof(Emotion), tag.Split('=')[1]));
                         }
+                        else if (tag.StartsWith("action="))
+                        {
+                            onAction.Invoke(tag.Split('=')[1]);
+                        }
                     }
                     return null;
                 }
+                onDialogueFinish.Invoke();
             }
         }
     }

@@ -9,6 +9,7 @@ using UnityEngine;
 public class MovementInput : MonoBehaviour {
 
     public float Velocity;
+	public bool active;
     [Space]
 
 	public float InputX;
@@ -46,6 +47,9 @@ public class MovementInput : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		InputMagnitude ();
+
+		if (!active)
+			return;
 
         isGrounded = controller.isGrounded;
         if (isGrounded)
@@ -103,8 +107,8 @@ public class MovementInput : MonoBehaviour {
 
 	void InputMagnitude() {
 		//Calculate Input Vectors
-		InputX = Input.GetAxis ("Horizontal");
-		InputZ = Input.GetAxis ("Vertical");
+		InputX = active ? Input.GetAxis ("Horizontal") : 0;
+		InputZ = active ? Input.GetAxis ("Vertical") : 0;
 
 		//anim.SetFloat ("InputZ", InputZ, VerticalAnimTime, Time.deltaTime * 2f);
 		//anim.SetFloat ("InputX", InputX, HorizontalAnimSmoothTime, Time.deltaTime * 2f);

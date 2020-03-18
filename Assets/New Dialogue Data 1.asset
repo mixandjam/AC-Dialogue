@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b506da50ebf6648833f4ed63078831, type: 3}
+  m_Name: New Dialogue Data 1
+  m_EditorClassIdentifier: 
+  conversationBlock:
+  - <emotion=happy><speed=50> Well I've been wanting to tell you<speed=5>... <speed=50>You
+    are such a cool friend and<speed=5>... <pause=.1><speed=60><size=150%><emotion=suprised>
+    <b>I HAVE SOMETHING FOR YOU<speed=20>!!</b>
+  - <emotion=angry><speed=50>Grab this code for <b>Unity Plus</b><speed=5>... <speed=60><size=120%><b>BDCQABEML5ZJBJPBF84F</b>!!!
+  - 

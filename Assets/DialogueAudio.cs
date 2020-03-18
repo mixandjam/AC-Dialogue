@@ -5,8 +5,7 @@ using DG.Tweening;
 
 public class DialogueAudio : MonoBehaviour
 {
-    public TMP_Animated tmp_animated;
-
+    private TMP_Animated animatedText;
     public Transform mouthQuad;
 
     public AudioClip[] voices;
@@ -16,11 +15,16 @@ public class DialogueAudio : MonoBehaviour
     public AudioSource punctuationSource;
     public AudioSource effectSource;
 
+    [Space]
+    public AudioClip sparkleClip;
+    public AudioClip rainClip;
+
     // Start is called before the first frame update
     void Start()
     {
-        tmp_animated.onEmotionChange.AddListener((newEmotion) => PlayEffect(newEmotion));
-        tmp_animated.onTextReveal.AddListener((newChar) => ReproduceSound(newChar));
+        animatedText = InterfaceManager.instance.animatedText;
+
+        animatedText.onTextReveal.AddListener((newChar) => ReproduceSound(newChar));
     }
 
     public void ReproduceSound(char c)
@@ -45,8 +49,6 @@ public class DialogueAudio : MonoBehaviour
 
     }
 
-    public void PlayEffect(Emotion e)
-    {
 
-    }
+
 }
