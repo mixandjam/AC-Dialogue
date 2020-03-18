@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: New Dialogue Data 1
   m_EditorClassIdentifier: 
   conversationBlock:
-  - <emotion=happy><speed=50> Well I've been wanting to tell you<speed=5>... <speed=50>You
-    are such a cool friend and<speed=5>... <pause=.1><speed=60><size=150%><emotion=suprised>
-    <b>I HAVE SOMETHING FOR YOU<speed=20>!!</b>
-  - <emotion=angry><speed=50>Grab this code for <b>Unity Plus</b><speed=5>... <speed=60><size=120%><b>BDCQABEML5ZJBJPBF84F</b>!!!
-  - 
+  - '<action=shake><emotion=happy><size=125%><speed=60>YES!!! <pause=1><action=shake><emotion=suprised>YES!!!
+    <pause=1><emotion=sad><size=50%><speed=100>Well actually I can''t really tell
+    because I don''t really know what this means<speed=4>... '

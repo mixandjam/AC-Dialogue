@@ -30,6 +30,9 @@ public class VillagerScript : MonoBehaviour
 
     public void EmotionChanger(Emotion e)
     {
+        if (this != InterfaceManager.instance.currentVillager)
+            return;
+
         animator.SetTrigger(e.ToString());
 
         if (e == Emotion.suprised)
@@ -44,6 +47,9 @@ public class VillagerScript : MonoBehaviour
 
     public void SetAction(string action)
     {
+        if (this != InterfaceManager.instance.currentVillager)
+            return;
+
         if(action == "shake")
         {
             Camera.main.GetComponent<CinemachineImpulseSource>().GenerateImpulse();

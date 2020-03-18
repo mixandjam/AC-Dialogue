@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class DialogueAudio : MonoBehaviour
 {
+    private VillagerScript villager;
     private TMP_Animated animatedText;
     public Transform mouthQuad;
 
@@ -22,6 +23,8 @@ public class DialogueAudio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        villager = GetComponent<VillagerScript>();
+
         animatedText = InterfaceManager.instance.animatedText;
 
         animatedText.onTextReveal.AddListener((newChar) => ReproduceSound(newChar));
@@ -29,6 +32,9 @@ public class DialogueAudio : MonoBehaviour
 
     public void ReproduceSound(char c)
     {
+
+        if (villager != InterfaceManager.instance.currentVillager)
+            return;
 
         if (char.IsPunctuation(c) && !punctuationSource.isPlaying)
         {

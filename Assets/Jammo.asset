@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Jammo
   m_EditorClassIdentifier: 
   villagerName: Jammo
-  villagerColor: {r: 1, g: 0.7976883, b: 0.4470588, a: 1}
+  villagerColor: {r: 1, g: 0.8788238, b: 0.495283, a: 1}
+  villagerNameColor: {r: 0.93333334, g: 0.6830923, b: 0.06666663, a: 1}
   dialogue: {fileID: 0}

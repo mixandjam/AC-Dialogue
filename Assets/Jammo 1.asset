@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6d573e41cae58a47b51e7cae7a5bc7f, type: 3}
-  m_Name: Jammo
+  m_Name: Jammo 1
   m_EditorClassIdentifier: 
-  villagerName: Jammo
-  villagerColor: {r: 1, g: 0.7976883, b: 0.4470588, a: 1}
+  villagerName: Jammy
+  villagerColor: {r: 0.6650944, g: 0.89311516, b: 1, a: 1}
+  villagerNameColor: {r: 0.13679248, g: 0.39972487, b: 1, a: 1}
   dialogue: {fileID: 0}

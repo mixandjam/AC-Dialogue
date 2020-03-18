@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: New Dialogue Data
   m_EditorClassIdentifier: 
   conversationBlock:
-  - <action=think><emotion=happy><speed=50> Well I've been wanting to tell you<speed=5>...
-    <speed=50>That maybe you and I could<speed=5>... <pause=.1><speed=60><size=150%><emotion=suprised><action=shake><action=sparkle>
-    <b>HAVE DINNER<speed=20>!!</b>
+  - <action=think><emotion=happy><speed=50>Well I've been wanting to tell you<speed=5>...
+    <speed=50>That maybe you and I could<speed=5>...<pause=.1><speed=60><size=150%><emotion=suprised><action=shake><action=sparkle>
+    <b>HAVE DINNER<speed=20>!</b>
   - <emotion=angry><speed=50>Dude if you say no Imma kill you<speed=5>... <speed=60><size=150%><b>FOR
     REAL THO</b>!!!
   - <action=rain><emotion=sad><speed=30>Or I guess you could say no if you want<speed=5>...

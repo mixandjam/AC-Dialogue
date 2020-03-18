@@ -82,6 +82,7 @@ public class InterfaceManager : MonoBehaviour
     public void SetCharNameAndColor()
     {
         nameTMP.text = currentVillager.data.villagerName;
+        nameTMP.color = currentVillager.data.villagerNameColor;
         nameBubble.color = currentVillager.data.villagerColor;
 
     }

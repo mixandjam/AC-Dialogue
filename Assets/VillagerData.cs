@@ -7,5 +7,6 @@ public class VillagerData : ScriptableObject
 {
     public string villagerName;
     public Color villagerColor;
+    public Color villagerNameColor;
     public DialogueData dialogue;
 }
