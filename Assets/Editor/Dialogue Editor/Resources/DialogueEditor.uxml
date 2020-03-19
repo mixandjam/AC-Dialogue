@@ -1,9 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <ui:Box style="flex-grow: 1;&#10;padding-left: 5px;&#10;padding-right: 5px;&#10;padding-top: 5px;&#10;padding-bottom: 5px;&#10;">
-        <Style src="DialogueEditor.uss" />
-        <ui:VisualElement name="dialogueBoxHolder" style="height: 300px;&#10;" />
-        <ui:Button text="+" />
-        <ui:Label text="Preview" />
-        <ui:TextField picking-mode="Ignore" value="filler text" text="filler text" readonly="true" multiline="true" focusable="false" />
-    </ui:Box>
-</ui:UXML>

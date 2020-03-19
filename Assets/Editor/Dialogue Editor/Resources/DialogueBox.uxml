@@ -1,7 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <ui:VisualElement style="height: 75px;&#10;padding-left: 5px;&#10;padding-right: 5px;&#10;padding-top: 5px;&#10;padding-bottom: 5px;&#10;flex-direction: row;&#10;align-items: center;&#10;">
-        <Style src="DialogueBox.uss" />
-        <ui:Button text="X" style="width: 20px;&#10;height: 20px;&#10;" />
-        <ui:TextField picking-mode="Ignore" value="filler text" text="filler text" style="flex-grow: 1;&#10;flex-shrink: 1;&#10;" />
-    </ui:VisualElement>
-</ui:UXML>
