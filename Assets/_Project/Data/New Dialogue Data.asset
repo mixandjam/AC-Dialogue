@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationBlock:
   - <action=think><emotion=happy><speed=50>Well I've been wanting to tell you<speed=5>...
-    <speed=50>That maybe you and I could<speed=5>...<pause=.1><speed=60><size=150%><emotion=suprised><action=shake><action=sparkle>
-    <b>HAVE DINNER<speed=20>!</b>
-  - <emotion=angry><speed=50>Dude if you say no Imma kill you<speed=5>... <speed=60><size=150%><b>FOR
-    REAL THO</b>!!!
+    <speed=50>That maybe <speed=5>...<pause=.1><speed=60><size=150%><emotion=suprised><action=shake><action=sparkle>
+    <b>WE SHOULD PLAY<speed=20>!</b>
+  - <emotion=angry><speed=50>Don't you dare say no<speed=5>... <speed=60><size=150%><b>FOR
+    REAL</b>!!!
   - <action=rain><emotion=sad><speed=30>Or I guess you could say no if you want<speed=5>...<speed=30>
     I guess I really don't have a choice<speed=5>... <speed=15><action=shake><action=sparkle><emotion=suprised>UNLESS?

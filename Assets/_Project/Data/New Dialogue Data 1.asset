@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b506da50ebf6648833f4ed63078831, type: 3}
+  m_Name: New Dialogue Data 1
+  m_EditorClassIdentifier: 
+  conversationBlock:
+  - '<action=sparkle><action=shake><emotion=happy><size=125%><speed=60>YES!!! <pause=1><action=shake><emotion=suprised>YES!!!
+    <pause=1><emotion=sad><size=50%><speed=100>Well actually I can''t really tell
+    because I don''t really know what this means<speed=4>... '
